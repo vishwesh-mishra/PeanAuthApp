@@ -1,0 +1,25 @@
+<div *ngIf="user">
+    <h2 class="page-header">{{user.name}}</h2>
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item">Username: {{user.username}}</li>
+            <li class="list-group-item">Email: {{user.email}}</li>
+        </ul>
+    </div>
+    <div class="row">
+        <button class="btn-primary btn-warning" (click)="isClicked = true">Change Password</button>
+    </div>
+    <div *ngIf="isClicked" class="row">
+        <form (submit)="onUpdatePassword()">
+            <div class="form-group form-inline">
+                <label>Current Password</label>
+                <input type="password" placeholder="current password" class="form-control" [(ngModel)]="currentPassword" name="currentPassword" />
+            </div>
+            <div class="form-group form-inline">
+                <label>New Password</label>
+                <input type="password" placeholder="new password" class="form-control" [(ngModel)]="newPassword" name="newPassword">
+            </div>
+            <input type="submit" class="btn btn-success" value="Update Password">
+        </form>
+    </div>
+</div>
